@@ -396,22 +396,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#full-drive-encryption" class="md-nav__link">
-    Full drive encryption
+  <a href="#package-manager-options" class="md-nav__link">
+    Package manager options
   </a>
   
-    <nav class="md-nav" aria-label="Full drive encryption">
+    <nav class="md-nav" aria-label="Package manager options">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setting-up-a-key-file" class="md-nav__link">
-    Setting up a key file
+  <a href="#transcational-update-old-default" class="md-nav__link">
+    Transcational-update old default
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packagekit-tukit-new-default" class="md-nav__link">
+    Packagekit + tukit new default
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microdnf" class="md-nav__link">
+    Microdnf
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-drive-encryption" class="md-nav__link">
+    Full drive encryption
+  </a>
   
 </li>
         
@@ -433,6 +454,19 @@
   <a href="#general-tips" class="md-nav__link">
     General tips
   </a>
+  
+    <nav class="md-nav" aria-label="General tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-extra-packages-to-install" class="md-nav__link">
+    Useful extra packages to install
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -586,6 +620,18 @@
   
   
     <li class="md-nav__item">
+      <a href="best_of_post.html" class="md-nav__link">
+        Post-installation best-of
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="kde.html" class="md-nav__link">
         KDE Plasma basics
       </a>
@@ -613,14 +659,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
       
-      <label class="md-nav__link" for="__nav_5_3">
+      <label class="md-nav__link" for="__nav_5_4">
         Interlude -- Fundamental openSUSE concepts
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Interlude -- Fundamental openSUSE concepts" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_3">
+        <label class="md-nav__title" for="__nav_5_4">
           <span class="md-nav__icon md-icon"></span>
           Interlude -- Fundamental openSUSE concepts
         </label>
@@ -1156,22 +1202,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#full-drive-encryption" class="md-nav__link">
-    Full drive encryption
+  <a href="#package-manager-options" class="md-nav__link">
+    Package manager options
   </a>
   
-    <nav class="md-nav" aria-label="Full drive encryption">
+    <nav class="md-nav" aria-label="Package manager options">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setting-up-a-key-file" class="md-nav__link">
-    Setting up a key file
+  <a href="#transcational-update-old-default" class="md-nav__link">
+    Transcational-update old default
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packagekit-tukit-new-default" class="md-nav__link">
+    Packagekit + tukit new default
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microdnf" class="md-nav__link">
+    Microdnf
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-drive-encryption" class="md-nav__link">
+    Full drive encryption
+  </a>
   
 </li>
         
@@ -1193,6 +1260,19 @@
   <a href="#general-tips" class="md-nav__link">
     General tips
   </a>
+  
+    <nav class="md-nav" aria-label="General tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-extra-packages-to-install" class="md-nav__link">
+    Useful extra packages to install
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1335,7 +1415,7 @@
 <p>You can install applications in several ways:</p>
 <ul>
 <li>flatpaks from flathub -- the <em>preferred solution</em> </li>
-<li>RPM's via <code>sudo transactional-update pkg install package_name</code></li>
+<li>RPM's via a package manager</li>
 <li>RPM's in a toolbox <code>toolbox -u</code></li>
 <li>snaps (requires some extra setup to get snapd installed)</li>
 <li>AppImages</li>
@@ -1344,65 +1424,43 @@
 <p class="admonition-title">Info</p>
 <p>The reason <em>flatpaks</em> are preferred is that they provide a self-contained environment offering a pleasant balance between security, dependence integrity and performance. See <a href="https://flatpak.org/">here</a> for details.</p>
 </div>
+<h3 id="package-manager-options">Package manager options<a class="headerlink" href="#package-manager-options" title="Permanent link">⚓︎</a></h3>
+<p>MicroOS now has a few different package managers as an option during install:
+ * transactional-update with zypper <code>the old default, and still the default for the server version</code>
+ * Packagekit + tukit <code>the new default, using pkcon and tukit</code>
+ * microdnf <code>an experimental package manager based on dnf</code></p>
+<p>The reason for changing package managers is because pkcon gives the opportunity to use Gnome Software or Discover for KDE as an installer of RPM's. And currently we are working on the ability to let Gnome Software and Discover perform system upgrades.</p>
+<h4 id="transcational-update-old-default">Transcational-update <em>old default</em><a class="headerlink" href="#transcational-update-old-default" title="Permanent link">⚓︎</a></h4>
+<p>commands for transactional-update are:
+<code>sudo transactional-update pkg install package_name</code> install a rpm package
+<code>sudo transactional-udpdate dup</code> perform a system upgrade to the next release
+<code>sudo transactional-update shell</code> open a shell of the next snapshot (you can use zypper commands there)</p>
+<h4 id="packagekit-tukit-new-default">Packagekit + tukit <em>new default</em><a class="headerlink" href="#packagekit-tukit-new-default" title="Permanent link">⚓︎</a></h4>
+<p>commands for Packagekit and tukit:
+<code>pkcon install package_name</code> install a rpm package
+<code>pkcon update</code> perform a system upgrade to the next release
+<code>sudo tukit execute bash</code> open a shell of the next snapshot (you can use zypper commands there)</p>
+<h4 id="microdnf">Microdnf<a class="headerlink" href="#microdnf" title="Permanent link">⚓︎</a></h4>
+<p><em>can someome please update this, i'm not sure of the commands</em></p>
 <h3 id="full-drive-encryption">Full drive encryption<a class="headerlink" href="#full-drive-encryption" title="Permanent link">⚓︎</a></h3>
 <p>If you need full drive encryption you can go through the ISO installer as normal, except for the last screen, where you need to click on <em>Partitioning</em>. Then use the guided partitioner to enable encryption. <em>LVM</em> is not necessary for it to work. </p>
 <p>Bear in mind however that with full drive encryption, you will need to enter your password twice: 
 1. the first time to open the grub menu
 2. the second time to decrypt during boot.</p>
 <p>Alternatively, the second decrypt can be performed automatically; instructions are provided at <a href="https://en.opensuse.org/SDB:Encrypted_root_file_system">manual</a>.</p>
-<h4 id="setting-up-a-key-file">Setting up a key file<a class="headerlink" href="#setting-up-a-key-file" title="Permanent link">⚓︎</a></h4>
-<p>The steps below describe how to set up a key file. You will need to execute the commands and edit the files listed below in a <em>transactional-update</em> shell.
-<div class="highlight"><pre><span></span><code>$ sudo transactional-update shell
-  # touch /.root.key
-  # chmod 600 /.root.key
-  # dd if=/dev/urandom of=/.root.key bs=1024 count=1
-  # cryptsetup luksAddKey /dev/sda1 /.root.key
-</code></pre></div>
-Replace <code>/dev/sda1</code> with the root partition (<code>sudo fdisk -l</code> to see partitions)
-<div class="highlight"><pre><span></span><code>  # vim /etc/crypttab
-</code></pre></div>
-Edit <code>/etc/crypttab</code>, find the line starting with the <code>UUID</code> reference of the root partition (<code>UUID=...</code>) and write the path to the key file in the third column.</p>
-<pre><code>cr_sda1 UUID=... /.root.key
-</code></pre>
-<p>(The partition name is just an example.)S
-Configure <code>dracut</code> to add the key file to the initrd:
-<div class="highlight"><pre><span></span><code>  # echo -e &#39;install_items+=&quot; /.root.key &quot;&#39; | tee --append /etc/dracut.conf.d/99-root-key.conf &gt; /dev/null
-  # mkinitrd
-  # exit
-$ sudo reboot
-</code></pre></div></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Full disk encryption is <em>not</em> recommended for SSD's as trimming is currently not supported due to the read only nature of the / filesystem during boot.</p>
+</div>
 <h3 id="installation-gnome">Installation: GNOME<a class="headerlink" href="#installation-gnome" title="Permanent link">⚓︎</a></h3>
+<p><em>Gnome is currently in a beta stage.</em></p>
+<p>At first boot flatpaks are enabled and some flatpaks are installed by default (MozillaFirefox, Gedit and Gnome Calculator).</p>
 <p>Make sure to install a browser via transactional-updates if you want to use GNOME extensions. The easiest way to install GNOME extensions is via the website provided by the <a href="https://extensions.gnome.org/">GNOME project</a>. For this to work however, you will need a browser installed on the system via transactional-update, as it will not work inside a containerized environment (like flatpaks, snaps, AppImages or in a toolbox). The browser will need to have the plugin mentioned on the top of the page when you first open it. </p>
 <p>After installation of the plugin, you can reload the page and choose the GNOME Extensions you want to install.</p>
 <p>To get GNOME extensions running, you need the following command to install Chromium directly:
-<div class="highlight"><pre><span></span><code>$ sudo transactional-update pkg install chromium
+<div class="highlight"><pre><span></span><code>$ pkcon install chromium
 $ sudo reboot
 </code></pre></div></p>
-<ul>
-<li>
-<p>You can also install some other useful packages through transactional-update and then reboot:
-<div class="highlight"><pre><span></span><code>$ sudo transactional-update pkg install gnome-remote-desktop gnome-shell-search-provider-nautilus gnome-color-manager
-$ sudo reboot
-</code></pre></div></p>
-</li>
-<li>
-<p>Some necessary commands for <em>GNOME Software</em>: 
-<div class="highlight"><pre><span></span><code>$ gsettings set org.gnome.software install-bundles-system-wide false
-$ gsettings set org.gnome.software allow-updates false
-$ gsettings set org.gnome.software download-updates false
-$ gsettings set org.gnome.software enable-repos-dialog false
-$ gsettings set org.gnome.software first-run true
-</code></pre></div>
-and the following:
-<div class="highlight"><pre><span></span><code>$ sudo rm -Rf /var/cache/app-info
-$ sudo transactional-update shell
-  # rpm -e --nodeps libzypp-plugin-appdata
-  # zypper al libzypp-plugin-appdata
-  # exit
-$ sudo reboot
-</code></pre></div></p>
-</li>
-</ul>
 <h3 id="installation-kde">Installation: KDE<a class="headerlink" href="#installation-kde" title="Permanent link">⚓︎</a></h3>
 <ul>
 <li>In <em>Discover</em>, enable the <em>flatpak</em> repository.</li>
@@ -1426,17 +1484,7 @@ $ sudo reboot
 </li>
 </ul>
 <h3 id="general-tips">General tips<a class="headerlink" href="#general-tips" title="Permanent link">⚓︎</a></h3>
-<p>It is recommended to disable both automatic updating and automatic rebooting. They are handy features for servers running 24/7), but the developers are thinking about a different and better integration with desktop usage. For now it is recommended to do the same, at least until you have become more familiar with MicroOS. Then you will be able to come up with the best automatic updating &amp; rebooting strategy for your workflow and use case. So:
-<div class="highlight"><pre><span></span><code>$ sudo systemctl disable --now transactional-update.timer
-$ sudo systemctl disable --now rebootmgr.service
-</code></pre></div>
-And then let’s check:
-<div class="highlight"><pre><span></span><code>$ sudo rebootmgrctl is-active
-*RebootMgr is dead*
-$ sudo rebootmgrctl status
-*Error: The name org.opensuse.RebootMgr was not provided by any .service files*
-</code></pre></div>
-Updates are now to be initialized manually with:
+<p>Updates are now to be initialized manually with:
 <div class="highlight"><pre><span></span><code>$ sudo transactional-update dup
 $ sudo reboot
 </code></pre></div>
@@ -1445,17 +1493,28 @@ Or
   # zypper dup
   # exit
 $ sudo reboot
+</code></pre></div>
+Or
+<div class="highlight"><pre><span></span><code>$ pkcon update
+</code></pre></div>
+Or
+<div class="highlight"><pre><span></span><code>$ sudo tukit execute bash
+  # zypper dup
+  # exit
+$ sudo reboot
+</code></pre></div></p>
+<h4 id="useful-extra-packages-to-install">Useful extra packages to install<a class="headerlink" href="#useful-extra-packages-to-install" title="Permanent link">⚓︎</a></h4>
+<p>Some useful extra packages to install include:
+* <code>ntfs-3g</code> for NTFS partitions
+* <code>fuse-exfat</code> for exfat partitions
+* <code>nano</code> instead of vim</p>
+<p>You can install both with:
+<div class="highlight"><pre><span></span><code>$ pkcon install tlp ntfs-3g fuse-exfat nano  
+$ sudo reboot
 </code></pre></div></p>
 <h3 id="installing-flatpaks">Installing flatpaks<a class="headerlink" href="#installing-flatpaks" title="Permanent link">⚓︎</a></h3>
-<p>The <code>flatpak</code> package is already installed; all that needs to be done is to add the flathub repo. Within KDE Plasma this is possible from within <em>Discover</em>. For GNOME you have to use one of the two options below (also possible for a terminal prompt if you don't like Discover):</p>
-<p>If you want to install flathub for only your user (in <code>/home/~ folder</code>):
-<div class="highlight"><pre><span></span><code>$ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-</code></pre></div>
-Updating flatpaks via the terminal are done with the command <code>flatpak update</code></p>
-<p>If you want to install flathub for all users (in <code>/var folder</code>):
-<div class="highlight"><pre><span></span><code>$ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-</code></pre></div>
-Updating flatpaks via the terminal are done with the command <code>sudo flatpak update</code></p>
+<p>The <code>flatpak</code> package is already installed and the flathub repo enabled within a Gnome install. Within KDE Plasma it is possible to enable the flathub repo from within <em>Discover</em>. </p>
+<p>Updating flatpaks via the terminal are done with the command <code>sudo flatpak update</code></p>
 <p>Some flatpaks you could install from <a href="https://flathub.org/home">flathub</a>:
 - <a href="https://flathub.org/apps/details/org.mozilla.firefox">Firefox</a>
 - <a href="https://flathub.org/apps/details/org.libreoffice.LibreOffice">Libreoffice</a>
@@ -1468,7 +1527,7 @@ Updating flatpaks via the terminal are done with the command <code>sudo flatpak 
 <p><em>It is NOT recommended to install snaps on openSUSE MicroOS, there is a possibility this will break during an update or reboot</em> </p>
 </div>
 <p>First, Snapd must be installed on the system with transactional-update:</p>
-<div class="highlight"><pre><span></span><code>$ sudo transactional-update shell
+<div class="highlight"><pre><span></span><code>$ sudo tukit execute bash
   # zypper addrepo --refresh https://download.opensuse.org/repositories/system:/snappy/openSUSE_Tumbleweed snappy
   # zypper --gpg-auto-import-keys refresh
   # zypper ref
@@ -1490,7 +1549,7 @@ You can install snaps via the terminal (for example the snap store where you can
 <div class="highlight"><pre><span></span><code>$ sudo snap install snap-store
 </code></pre></div></p>
 <h3 id="installing-virtualbox">Installing virtualbox<a class="headerlink" href="#installing-virtualbox" title="Permanent link">⚓︎</a></h3>
-<div class="highlight"><pre><span></span><code>$ sudo transactional-update shell
+<div class="highlight"><pre><span></span><code>$ sudo tukit execute bash
   # zypper ref
   # zypper in virtualbox-qt
   # usermod -a -G vboxusers &lt;myuser&gt;
@@ -1499,7 +1558,7 @@ $ sudo reboot
 </code></pre></div>
 <h4 id="adding-the-extension-pack-for-the-host">Adding the extension pack for the host<a class="headerlink" href="#adding-the-extension-pack-for-the-host" title="Permanent link">⚓︎</a></h4>
 <p><em>Installation can be done after you've rebooted into a new snapshot where virtualbox-qt is installed</em>
-<div class="highlight"><pre><span></span><code>$ sudo transactional-update shell
+<div class="highlight"><pre><span></span><code>$ sudo tukit execute bash
   # cd /tmp
   # LatestVirtualBoxVersion=$(wget -qO - https://download.virtualbox.org/virtualbox/LATEST-STABLE.TXT) &amp;&amp; wget &quot;https://download.virtualbox.org/virtualbox/${LatestVirtualBoxVersion}/Oracle_VM_VirtualBox_Extension_Pack-${LatestVirtualBoxVersion}.vbox-extpack&quot;
   # VBoxManage extpack install --replace Oracle_VM_VirtualBox_Extension_Pack-${LatestVirtualBoxVersion}.vbox-extpack
@@ -1513,15 +1572,15 @@ $ sudo reboot
 2. Click on <em>Expert Download</em>.
 3. Choose the option <em>Add repository and install manually</em>.
 4. Copy the commands into a <em>transactional-update shell</em>
-<div class="highlight"><pre><span></span><code>$ sudo transactional-update shell
-  # zypper addrepo https://download.opensuse.org/repositories/home:alphard:RHEL/openSUSE_Tumbleweed/home:alphard:RHEL.repo 
+<div class="highlight"><pre><span></span><code>$ sudo tukit execute bash
+  # zypper addrepo -cf https://download.opensuse.org/repositories/home:alphard:RHEL/openSUSE_Tumbleweed/home:alphard:RHEL.repo 
   # zypper ref
   # zypper in zerotier-one
   # exit
 $ sudo reboot
 </code></pre></div>
-If you have added repositories to <code>zypper</code> by yourself, it is possible that they will not refresh automatically with a <code>dup</code> command. You will have to give them a flag for autorefresh:
-<div class="highlight"><pre><span></span><code>$ sudo transactional-update shell
+If you have added repositories to <code>zypper</code> by yourself, it is possible that they will not refresh automatically with a <code>dup</code> command. You will have to give them a flag for autorefresh: (or add the <code>-cf</code> to the command after <code>addrepo</code> or <code>ar</code>)
+<div class="highlight"><pre><span></span><code>$ sudo tukit execute bash
   # zypper lr -p
   # zypper mr -f &lt;number of repo you want to add Yes to in the Refresh colomn&gt;
   # exit
@@ -1534,7 +1593,7 @@ $ sudo reboot
 <li><code>ModemManager</code> for laptops with a WWAN modem</li>
 </ul>
 <p>You can install both with:
-<div class="highlight"><pre><span></span><code>$ sudo transactional-update pkg install tlp ModemManager
+<div class="highlight"><pre><span></span><code>$ pkcon install tlp ModemManager libmbim usb_modeswitch NetworkManager-connection-editor  
 $ sudo reboot
 </code></pre></div></p>
 <h3 id="some-useful-aliases-for-bash-to-type-the-commands-faster">Some useful aliases for bash to type the commands faster<a class="headerlink" href="#some-useful-aliases-for-bash-to-type-the-commands-faster" title="Permanent link">⚓︎</a></h3>
@@ -1543,24 +1602,26 @@ $ sudo reboot
 <div class="highlight"><pre><span></span><code>#My custom aliases
 alias shalt=&quot;sudo systemctl halt&quot;
 alias sboot=&quot;sudo systemctl reboot&quot;
+alias pu=&quot;pkcon update&quot;
+alias steb=&quot;sudo tukit execute bash&quot;
 alias sts=&quot;sudo transactional-update shell&quot;
 alias stsc=&quot;sudo transactional-update shell --continue&quot;
 alias stdc=&quot;sudo transactional-update dup --continue&quot;
 alias std=&quot;sudo transactional-update dup&quot;
-alias sfu=&quot;sudo flatpak update &amp;&amp; flatpak update&quot;
-alias fsu=&quot;sudo flatpak update &amp;&amp; flatpak update &amp;&amp; sudo snap refresh&quot;
-alias dfs=&quot;sudo transactional-update dup &amp;&amp; sudo flatpak update &amp;&amp; flatpak update &amp;&amp; sudo snap refresh&quot;
+alias sfu=&quot;sudo flatpak update -y &amp;&amp; flatpak update -y&quot;
+alias fsu=&quot;sudo flatpak update -y &amp;&amp; flatpak update -y &amp;&amp; sudo snap refresh&quot;
+alias dfs=&quot;pkcon update &amp;&amp; sudo flatpak update -y &amp;&amp; flatpak update -y &amp;&amp; sudo snap refresh&quot;
 </code></pre></div>
 Then for example typing <code>std</code> in a terminal prompt will issue the command <code>sudo transactional-update dup</code>.</p>
 <h2 id="known-issues">Known Issues<a class="headerlink" href="#known-issues" title="Permanent link">⚓︎</a></h2>
 <h3 id="no-graphical-sessionlogin-screen-in-hyper-v">No graphical session/login screen in Hyper-V<a class="headerlink" href="#no-graphical-sessionlogin-screen-in-hyper-v" title="Permanent link">⚓︎</a></h3>
 <p><em>Hyper-V</em> requires the package <code>xf86-video-fbdev</code> for graphical session:
-<div class="highlight"><pre><span></span><code>$ sudo transactional-update pkg install xf86-video-fbdev
+<div class="highlight"><pre><span></span><code>$ pkcon install xf86-video-fbdev
 $ sudo reboot
 </code></pre></div></p>
 <h3 id="toolbox-is-not-starting-potentially-insufficient-uids-and-gids">Toolbox is not starting ("potentially insufficient UIDs and GIDs")<a class="headerlink" href="#toolbox-is-not-starting-potentially-insufficient-uids-and-gids" title="Permanent link">⚓︎</a></h3>
 <p>UUI and GUI need to be set for <code>toolbox</code> to work:
-<div class="highlight"><pre><span></span><code>$ sudo transactional-update shell
+<div class="highlight"><pre><span></span><code>$ sudo tukit execute bash
   # echo &quot;&lt;yourusername&gt;:100000:65536&quot; &gt; /etc/subuid 
   # echo &quot;&lt;yourusername&gt;:100000:65536&quot; &gt; /etc/subgid
   # exit
@@ -1582,6 +1643,25 @@ $ exit
 You can then open the application <em>Get Extensions</em> that is available from your launchpad.</p>
 <p>To uninstall:
 <code>pip3 uninstall getextensions</code></p>
+<p>Old items:
+It is recommended to disable both automatic updating and automatic rebooting. They are handy features for servers running 24/7), but the developers are thinking about a different and better integration with desktop usage. For now it is recommended to do the same, at least until you have become more familiar with MicroOS. Then you will be able to come up with the best automatic updating &amp; rebooting strategy for your workflow and use case. So:
+<div class="highlight"><pre><span></span><code>$ sudo systemctl disable --now transactional-update.timer
+$ sudo systemctl disable --now rebootmgr.service
+</code></pre></div>
+And then let’s check:
+<div class="highlight"><pre><span></span><code>$ sudo rebootmgrctl is-active
+*RebootMgr is dead*
+$ sudo rebootmgrctl status
+*Error: The name org.opensuse.RebootMgr was not provided by any .service files*
+</code></pre></div>
+For GNOME you have to use one of the two options below (also possible for a terminal prompt if you don't like Discover):</p>
+<p>If you want to install flathub for only your user (in <code>/home/~ folder</code>):
+<div class="highlight"><pre><span></span><code>$ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+</code></pre></div>
+Updating flatpaks via the terminal are done with the command <code>flatpak update</code></p>
+<p>If you want to install flathub for all users (in <code>/var folder</code>):
+<div class="highlight"><pre><span></span><code>$ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+</code></pre></div></p>
                 
                   
                     
@@ -1590,7 +1670,7 @@ You can then open the application <em>Get Extensions</em> that is available from
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-04-12
+      Last update: 2021-06-28
     
   </small>
 </div>
@@ -1629,13 +1709,13 @@ You can then open the application <em>Get Extensions</em> that is available from
           </a>
         
         
-          <a href="kde.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="best_of_post.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                KDE Plasma basics
+                Post-installation best-of
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
