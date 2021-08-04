@@ -1324,19 +1324,25 @@
                 
                 <h1 id="obtaining-software">Obtaining software<a class="headerlink" href="#obtaining-software" title="Permanent link">⚓︎</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">⚓︎</a></h2>
-<p>When it comes at getting software, modern Linux operating systems have access to a wide array of methods and formats. The openSUSE distributions are no exception:
-* the official and unofficial repositories, which you interact with from zypper, and which provide binaries packaged as RPMs files
-* third-party providers, which you interact with from a command prompt through <code>wget</code> or <code>curl</code> or <code>git</code>, and which either provide you with a complete installation solution, including binaries and installation scripts, or include just the source files along with build scripts
-* <em>flatpaks</em>, which you typically interact with from the <code>flatpak</code> command line utility, providing you containerized applications along with all their dependencies
-* <em>Ubuntu snaps</em>, which you install from the <code>snapd</code> command line utility, providing you (just like flatpaks) containerized applications with their dependencies
-* <em>AppImages</em>, which you manually download from websites and various hosts, providing you with a single executable file which your system will treat as an application, much like what you would see in a macOS environment</p>
+<p>When it comes at getting software, modern Linux operating systems have access to a wide array of methods and formats. The openSUSE distributions are no exception:</p>
+<ul>
+<li>the official and unofficial repositories, which you interact with from zypper, and which provide binaries packaged as RPMs files</li>
+<li>third-party providers, which you interact with from a command prompt through <code>wget</code> or <code>curl</code> or <code>git</code>, and which either provide you with a complete installation solution, including binaries and installation scripts, or include just the source files along with build scripts</li>
+<li><em>flatpaks</em>, which you typically interact with from the <code>flatpak</code> command line utility, providing you containerized applications along with all their dependencies</li>
+<li><em>Ubuntu snaps</em>, which you install from the <code>snapd</code> command line utility, providing you (just like flatpaks) containerized applications with their dependencies</li>
+<li><em>AppImages</em>, which you manually download from websites and various hosts, providing you with a single executable file which your system will treat as an application, much like what you would see in a macOS environment</li>
+</ul>
 <p>The goal of this document is to help you understand these various formats and methods, as well as their strong and weak points, so that you can seamlessly include them in your daily usage. Assuming you are using an openSUSE distribution, we will make a few recommendations specific to these distributions along the way.</p>
 <h2 id="official-and-third-party-repositories-rpm">Official and third-party repositories (.rpm)<a class="headerlink" href="#official-and-third-party-repositories-rpm" title="Permanent link">⚓︎</a></h2>
-<p><code>.rpm</code> packages are the traditional and most common way of obtaining new software on openSUSE distributions. You are likely already familiar with the method for obtaining these packages, but to be sure:
-1. Find the repository providing the package you are looking for.
-    * If the package is provided by an official repository, such as http://download.opensuse.org/update/tumbleweed/, (use <code>zypper lr -d</code> to show the exact endpoint of all your repositories), then the desired package will show up in <code>zypper search &lt;package_name&gt;</code>.
-    * If the package is <em>not</em> provided by an official repository, you will need to first add the repository.
-2. Install the target package with <code>sudo zypper in &lt;package_name&gt;</code>. In certain cases you won't know the exact name of the package, so after adding the corresponding repository you can simply do <code>sudo zypper dup</code> to make sure that the package is installed among all the pending updates.</p>
+<p><code>.rpm</code> packages are the traditional and most common way of obtaining new software on openSUSE distributions. You are likely already familiar with the method for obtaining these packages, but to be sure:</p>
+<ol>
+<li>Find the repository providing the package you are looking for.<ul>
+<li>If the package is provided by an official repository, such as http://download.opensuse.org/update/tumbleweed/, (use <code>zypper lr -d</code> to show the exact endpoint of all your repositories), then the desired package will show up in <code>zypper search &lt;package_name&gt;</code>.</li>
+<li>If the package is <em>not</em> provided by an official repository, you will need to first add the repository.</li>
+</ul>
+</li>
+<li>Install the target package with <code>sudo zypper in &lt;package_name&gt;</code>. In certain cases you won't know the exact name of the package, so after adding the corresponding repository you can simply do <code>sudo zypper dup</code> to make sure that the package is installed among all the pending updates.</li>
+</ol>
 <h3 id="detailed-instructions-for-external-repositories">Detailed instructions for external repositories<a class="headerlink" href="#detailed-instructions-for-external-repositories" title="Permanent link">⚓︎</a></h3>
 <p>Certain application providers provide you with an <code>.rpm</code> file that will automatically add the require repository and install the desired application. When so you can simply point <strong>zypper</strong> to the said file and install from there, as in:</p>
 <div class="highlight"><pre><span></span><code>cd ~/Downloads
@@ -1351,17 +1357,23 @@ $   rpm --checksig &lt;the-rpm-package-file&gt;.rpm
 </code></pre></div>
 <p>On some configurations not doing so might result in <code>sudo zypper dup</code> not automatically acquiring new updates for the package provided by that repository. You can make sure your repositories <strong>refresh</strong> automatically by listing them and paying attention at the (r) column -- the last -- obtained from <code>zypper lr</code>. </p>
 <h3 id="pros-cons-when">Pros, cons, when<a class="headerlink" href="#pros-cons-when" title="Permanent link">⚓︎</a></h3>
-<p><strong>Pros</strong>:
-* the most 'natural' way to install programs in the openSUSE ecosystem
-* has the best performance (startup time + execution speed) of all solutions
-* has the smallest footprint on your RAM and hard drive</p>
-<p><strong>Cons</strong>:
-* heavily depends the libraries and other dependencies provided by your operating system, which means that drastic changes in your system-wide dependencies might prevent the program from running at all
-* depends on the availability of the distribution's packagers and maintainers, as opposed to solutions "closer" to the developers or that can benefit from cross-distribution maintainership (<em>flatpaks</em>, <em>AppImages</em>, <em>Ubuntu snaps</em>)</p>
-<p><strong>Go for it when</strong>:
-* you are aiming for core utilities or libraries (e.g. <em>curl</em>, <em>gcc</em>, <em>python-devel</em>) and you know beforehand that you won't need to have several versions of these installed at the same time
-* you need maximal performance / minimal footprint
-* you can afford a marginally slower update pace than with other solutions</p>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>the most 'natural' way to install programs in the openSUSE ecosystem</li>
+<li>has the best performance (startup time + execution speed) of all solutions</li>
+<li>has the smallest footprint on your RAM and hard drive</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>heavily depends the libraries and other dependencies provided by your operating system, which means that drastic changes in your system-wide dependencies might prevent the program from running at all</li>
+<li>depends on the availability of the distribution's packagers and maintainers, as opposed to solutions "closer" to the developers or that can benefit from cross-distribution maintainership (<em>flatpaks</em>, <em>AppImages</em>, <em>Ubuntu snaps</em>)</li>
+</ul>
+<p><strong>Go for it when</strong>:</p>
+<ul>
+<li>you are aiming for core utilities or libraries (e.g. <em>curl</em>, <em>gcc</em>, <em>python-devel</em>) and you know beforehand that you won't need to have several versions of these installed at the same time</li>
+<li>you need maximal performance / minimal footprint</li>
+<li>you can afford a marginally slower update pace than with other solutions</li>
+</ul>
 <h2 id="third-party-remote-providers">Third-party remote providers<a class="headerlink" href="#third-party-remote-providers" title="Permanent link">⚓︎</a></h2>
 <p>We call <em>third-party remote providers</em> as a catch-all term for websites, services or remote machines offering you an automatic installation solution provided by installation scripts provided along with the desired application.</p>
 <p>Since all the details fo the installation depends on custom made installation scripts, your experience with this method can vary significantly from one provider to another. Here your best bet is to thoroughly follow the instructions mentioned by the provider. For example, installing the Rust developer stack is a simple as copy-pasting into your command line the line:</p>
@@ -1373,24 +1385,32 @@ $   rpm --checksig &lt;the-rpm-package-file&gt;.rpm
 <p>Installation scripts might require sudo rights, so be mindful about what you are installing, and who you are installing from. </p>
 </div>
 <h3 id="pros-cons-when_1">Pros, cons, when<a class="headerlink" href="#pros-cons-when_1" title="Permanent link">⚓︎</a></h3>
-<p><strong>Pros</strong>:
-* has the best performance (startup time + execution speed) of all solutions
-* has the smallest footprint on your RAM and hard drive</p>
-<p><strong>Cons</strong>:
-* no control over the behaviour of the script -- especially if the script asks to be run as <code>sudo</code> -- which may incur some risk 
-* heavily depends the libraries and other dependencies provided by your operating system, which means that drastic changes in your system-wide dependencies might prevent the program from running at all
-* depends on the availability of the distribution's packagers and maintainers, as opposed to solutions "closer" to the developers or that can benefit from cross-distribution maintainership (<em>flatpaks</em>, <em>AppImages</em>, <em>Ubuntu snaps</em>)</p>
-<p><strong>Go for it when</strong>:
-* you are 100% sure you can trust the provider
-* you are aiming for core utilities or libraries (e.g. <em>curl</em>, <em>gcc</em>, <em>python-devel</em>) and you know beforehand that you won't need to have several versions of these installed at the same time
-* you need maximal performance / minimal footprint
-* you can afford a marginally slower update pace than with other solutions</p>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>has the best performance (startup time + execution speed) of all solutions</li>
+<li>has the smallest footprint on your RAM and hard drive</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>no control over the behaviour of the script -- especially if the script asks to be run as <code>sudo</code> -- which may incur some risk </li>
+<li>heavily depends the libraries and other dependencies provided by your operating system, which means that drastic changes in your system-wide dependencies might prevent the program from running at all</li>
+<li>depends on the availability of the distribution's packagers and maintainers, as opposed to solutions "closer" to the developers or that can benefit from cross-distribution maintainership (<em>flatpaks</em>, <em>AppImages</em>, <em>Ubuntu snaps</em>)</li>
+</ul>
+<p><strong>Go for it when</strong>:</p>
+<ul>
+<li>you are 100% sure you can trust the provider</li>
+<li>you are aiming for core utilities or libraries (e.g. <em>curl</em>, <em>gcc</em>, <em>python-devel</em>) and you know beforehand that you won't need to have several versions of these installed at the same time</li>
+<li>you need maximal performance / minimal footprint</li>
+<li>you can afford a marginally slower update pace than with other solutions</li>
+</ul>
 <h2 id="flatpaks">Flatpaks<a class="headerlink" href="#flatpaks" title="Permanent link">⚓︎</a></h2>
-<p><em>Flatpak</em> is a complete solution for installing, updating and running desktop applications from a containerized environment. It makes use of the following components:
-* the <code>flatpak</code> command line utility
-* a remote application store at https://flathub.org/home
-* application references, such as <code>com.spotify.Client</code>, organized by the flathub store
-* a local repository used to store applications along with their dependencies (by default, <code>/var/lib/flatpak</code>)</p>
+<p><em>Flatpak</em> is a complete solution for installing, updating and running desktop applications from a containerized environment. It makes use of the following components:</p>
+<ul>
+<li>the <code>flatpak</code> command line utility</li>
+<li>a remote application store at https://flathub.org/home</li>
+<li>application references, such as <code>com.spotify.Client</code>, organized by the flathub store</li>
+<li>a local repository used to store applications along with their dependencies (by default, <code>/var/lib/flatpak</code>)</li>
+</ul>
 <p>On openSUSE distributions, you can install flatpak as follows:</p>
 <p>Install the command line utility (not required if it's installed already; to double-check see if <code>flatpak --version</code> returns something):
 <div class="highlight"><pre><span></span><code>$   sudo zypper in flatpak
@@ -1401,9 +1421,11 @@ $   rpm --checksig &lt;the-rpm-package-file&gt;.rpm
 <p>And finally restart your system. From now on you will be able to install any of the very numerous apps provided from <em>flathub</em>, as in:
 <div class="highlight"><pre><span></span><code>$   flatpak install --user flathub com.spotify.Client
 </code></pre></div></p>
-<p>Two things are important to bear in mind:
-1. Using the <code>--user</code> flag is recommended for this reason: if the user has a separate <code>/home</code> and installs flatpaks using the <code>--user</code> flag, these applications will remain even after the entire file system is reinstalled, which means that the installed flatpaks can be reused after restoring the system.
-2. Installing applications (with or without <code>--user</code> should automatically export a <code>.desktop</code> file to <code>/var/lib/flatpak/exports/share/applications</code> and add the corresponding symlinks to your system. This means applications will show up in your desktop environment's application launchers and other menus right after you have installed them (no reboot required).</p>
+<p>Two things are important to bear in mind:</p>
+<ol>
+<li>Using the <code>--user</code> flag is recommended for this reason: if the user has a separate <code>/home</code> and installs flatpaks using the <code>--user</code> flag, these applications will remain even after the entire file system is reinstalled, which means that the installed flatpaks can be reused after restoring the system.</li>
+<li>Installing applications (with or without <code>--user</code> should automatically export a <code>.desktop</code> file to <code>/var/lib/flatpak/exports/share/applications</code> and add the corresponding symlinks to your system. This means applications will show up in your desktop environment's application launchers and other menus right after you have installed them (no reboot required).</li>
+</ol>
 <p>Updating your flatpaks is then as easy as:
 <div class="highlight"><pre><span></span><code>$   flatpak update
 </code></pre></div></p>
@@ -1442,17 +1464,23 @@ Spotify com.spotify.Client      1.1.55.498.gf9a83c60    stable  system
 <h4 id="flatseal">Flatseal<a class="headerlink" href="#flatseal" title="Permanent link">⚓︎</a></h4>
 <p>Please refer to Flatseal's <a href="https://github.com/tchx84/Flatseal/blob/master/DOCUMENTATION.md">official documentation</a>.</p>
 <h3 id="pros-cons-when_2">Pros, cons, when<a class="headerlink" href="#pros-cons-when_2" title="Permanent link">⚓︎</a></h3>
-<p><strong>Pros</strong>:
-* decent performance (it runs as fast as "bare" binaries and launches almost as fast)
-* excellent safety for your operating system (because most dependencies are not shared with the host operating system and because flatpaks installed with <code>--user</code> survive system reinstallations/restorations)
-* easy to update (<code>flatpak update</code>)</p>
-<p><strong>Cons</strong>:
-* eats up significantly more hard drive space than the alternative methods and formats (because not all dependencies can be shared between flatpaks)
-* sometimes rough around the edges in terms of integration with the desktop environment</p>
-<p><strong>Go for it when</strong>:
-* you are using many applications with a graphical interface and you don't want to expose them or your system to conflicts of dependencies (useful for Tumbleweed and microOS, whose core packages change frequently)
-* you want to have freshly updated and widely tested applications (the same as most other Linux distributions)
-* you plan on using many user applications (the more flatpaks you have, the more dependencies they can share)</p>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>decent performance (it runs as fast as "bare" binaries and launches almost as fast)</li>
+<li>excellent safety for your operating system (because most dependencies are not shared with the host operating system and because flatpaks installed with <code>--user</code> survive system reinstallations/restorations)</li>
+<li>easy to update (<code>flatpak update</code>)</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>eats up significantly more hard drive space than the alternative methods and formats (because not all dependencies can be shared between flatpaks)</li>
+<li>sometimes rough around the edges in terms of integration with the desktop environment</li>
+</ul>
+<p><strong>Go for it when</strong>:</p>
+<ul>
+<li>you are using many applications with a graphical interface and you don't want to expose them or your system to conflicts of dependencies (useful for Tumbleweed and microOS, whose core packages change frequently)</li>
+<li>you want to have freshly updated and widely tested applications (the same as most other Linux distributions)</li>
+<li>you plan on using many user applications (the more flatpaks you have, the more dependencies they can share)</li>
+</ul>
 <h2 id="snaps">Snaps<a class="headerlink" href="#snaps" title="Permanent link">⚓︎</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1475,16 +1503,22 @@ Spotify com.spotify.Client      1.1.55.498.gf9a83c60    stable  system
 </div>
 <h2 id="summary-and-conclusion">Summary and conclusion<a class="headerlink" href="#summary-and-conclusion" title="Permanent link">⚓︎</a></h2>
 <p>Even though Leap and Tumbleweed's official repositories are numerous, you will find yourself in search of alternatives at times. Here are some simple rules of thumbs that emerge from the Pros and cons discussed above:</p>
-<p>If you are looking for a program with a graphical interface that...
-1. updates often; or 
-2. relies on very recent dependencies; or
-3. requires you to install dependencies that:
-    * are provided by the official repositories; but 
-    * differ in version from those provided by the official repositories; then
-    you will be better off using ; then snaps, flapaks or appimages offer you serious alternatives to official repositories, which may update less frequently. This applies to both Leap and Tumbleweed's official repositories.</p>
-<p>When wondering which to use, between snaps, flatpaks and appimages:
-1. favour <strong>flatpaks</strong> if you want a streamlined experience or precise maintenance options via the command line or if you plan on using several other flatpaks (the more flatpaks, the most cost-efficient the sacrifice of storage space they demand)
-2. favour <strong>appimages</strong> if you need a handful of "fire-and-forget" or "portable" (no installation needed) applications.</p>
+<p>If you are looking for a program with a graphical interface that...</p>
+<ol>
+<li>updates often; or </li>
+<li>relies on very recent dependencies; or</li>
+<li>requires you to install dependencies that:<ul>
+<li>are provided by the official repositories; but </li>
+<li>differ in version from those provided by the official repositories; then
+you will be better off using ; then snaps, flapaks or appimages offer you serious alternatives to official repositories, which may update less frequently. This applies to both Leap and Tumbleweed's official repositories.</li>
+</ul>
+</li>
+</ol>
+<p>When wondering which to use, between snaps, flatpaks and appimages:</p>
+<ol>
+<li>favour <strong>flatpaks</strong> if you want a streamlined experience or precise maintenance options via the command line or if you plan on using several other flatpaks (the more flatpaks, the most cost-efficient the sacrifice of storage space they demand)</li>
+<li>favour <strong>appimages</strong> if you need a handful of "fire-and-forget" or "portable" (no installation needed) applications.</li>
+</ol>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">⚓︎</a></h2>
 <ul>
 <li>Comparison between AppImage, Flatpak and Ubuntu Snap: https://github.com/AppImage/AppImageKit/wiki/Similar-projects#comparison</li>
